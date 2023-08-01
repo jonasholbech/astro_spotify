@@ -1,0 +1,33 @@
+---
+import Button from "./Button.astro";
+---
+
+<footer>
+  <div class="content">
+    <p class="footer-title">Preview of Spotify</p>
+    <p>
+      Sign up to get unlimited songs and podcasts with occasional ads. No credit
+      card needed.
+    </p>
+  </div>
+  <Button variant="primary" size="medium">Sign up free</Button>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--brand-gradient);
+    color: var(--text-white);
+    border-top: 1px solid #282828;
+    padding: 11px 24px 7px 15px;
+  }
+
+  .footer-title {
+    font-size: var(--font-size-tiny);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+</style>

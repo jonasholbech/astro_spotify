@@ -1,0 +1,80 @@
+---
+import Button from "./Button.astro";
+---
+
+<header class="topbar">
+  <menu>
+    <li>
+      <button disabled>
+        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"
+          ><path
+            d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+          ></path></svg
+        >
+      </button>
+    </li>
+    <li>
+      <button disabled>
+        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"
+          ><path
+            d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+          ></path></svg
+        >
+      </button>
+    </li>
+  </menu>
+
+  <div class="button-group">
+    <Button variant="tertiary" size="medium">Sign up</Button>
+    <Button variant="primary" size="medium">Log in</Button>
+  </div>
+</header>
+
+<style>
+  .topbar {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    background: var(--surface-black);
+    color: var(--text-white);
+    padding: var(--space-md) var(--space-xl);
+    height: 4rem;
+  }
+
+  menu {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none;
+  }
+
+  menu button {
+    display: grid;
+    place-content: center;
+    width: var(--space-xl);
+    height: var(--space-xl);
+    border-radius: var(--border-radius-round);
+    background: var(--text-black);
+    color: var(--text-white);
+  }
+
+  button svg {
+    width: var(--space-md);
+    height: var(--space-md);
+  }
+
+  menu button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @media (width < 1000px) {
+    menu li:last-child {
+      display: none;
+    }
+  }
+
+  .button-group {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+</style>

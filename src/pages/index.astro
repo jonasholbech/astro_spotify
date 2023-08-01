@@ -1,0 +1,144 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import TopBar from "../components/TopBar.astro";
+import Footer from "../components/Footer.astro";
+import PlaylistCard from "../components/PlaylistCard.astro";
+import Shelf from "../components/Shelf.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Home</title>
+  </head>
+  <body>
+    <Nav />
+    <TopBar />
+    <main>
+      <Shelf title="Focus">
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/14/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/15/350/350.webp"
+          title="Deep Focus"
+          body="Keep calm and focus with ambient and post-rock music."
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/16/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/17/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/11/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/12/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/13/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+      </Shelf>
+
+      <Shelf title="Spotify Playlist">
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/18/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/19/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/20/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/21/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/22/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/23/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+        <PlaylistCard
+          imgPath="https://picsum.photos/id/24/350/350.webp"
+          title="Peaceful Piano"
+          body="Relax and indulge with beautiful piano pieces"
+        />
+      </Shelf>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "nav topbar"
+      "nav main"
+      "footer footer";
+    height: 100%;
+  }
+  :global(main) {
+    grid-area: main;
+  }
+  :global(nav) {
+    grid-area: nav;
+  }
+  :global(.topbar) {
+    grid-area: topbar;
+  }
+  :global(footer) {
+    grid-area: footer;
+  }
+
+  main {
+    display: grid;
+    grid-auto-rows: min-content;
+    gap: var(--space-xxl);
+
+    background: linear-gradient(#1f1f1f 0, var(--surface-default) 100%) 0 0 /
+        100% 20rem no-repeat,
+      var(--surface-default);
+
+    overflow-y: auto;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  @media (width > 1000px) {
+    main {
+      padding: var(--space-lg) var(--space-xl);
+    }
+  }
+</style>

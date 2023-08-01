@@ -1,0 +1,124 @@
+---
+const { title, body, imgPath } = Astro.props;
+---
+
+<li>
+  <article>
+    <h3>
+      <a href="#0">{title}</a>
+    </h3>
+    <figure>
+      <img src={imgPath} alt="" height="350" width="350" />
+      <button class="play-btn">
+        <svg viewBox="0 0 24 24"
+          ><path
+            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+          ></path></svg
+        >
+      </button>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        ><path
+          fill="currentColor"
+          d="M16 0C7.197 0 0 7.197 0 16s7.197 16 16 16s16-7.197 16-16S24.88 0 16 0zm7.36 23.12c-.319.479-.881.64-1.36.317c-3.76-2.317-8.479-2.797-14.083-1.52c-.557.165-1.037-.235-1.199-.72c-.156-.557.24-1.036.719-1.197c6.084-1.36 11.365-.803 15.521 1.76c.563.24.64.88.401 1.36zm1.921-4.401c-.401.563-1.12.803-1.683.401c-4.317-2.641-10.88-3.437-15.916-1.839c-.641.156-1.365-.161-1.521-.803c-.161-.64.156-1.359.797-1.52c5.844-1.761 13.041-.876 18 2.161c.484.24.724 1.041.323 1.599zm.162-4.479c-5.125-3.043-13.683-3.36-18.563-1.839c-.801.239-1.599-.24-1.839-.964c-.239-.797.24-1.599.959-1.839c5.683-1.681 15.041-1.359 20.964 2.161c.719.401.957 1.36.557 2.079c-.401.563-1.36.801-2.079.401z"
+        ></path></svg
+      >
+    </figure>
+    <p>{body}</p>
+  </article>
+</li>
+
+<style>
+  article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    background: var(--surface-light);
+    border-radius: var(--border-radius-medium);
+    transition: background 0.3s ease;
+  }
+
+  article:hover {
+    background: var(--surface-light-hover);
+  }
+
+  h3 {
+    margin-bottom: var(--space-xxxs);
+  }
+
+  h3 a {
+    color: inherit;
+  }
+
+  a::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  figure {
+    display: grid;
+    grid: "stack";
+    place-items: start;
+    order: -1;
+    margin-bottom: var(--space-md);
+    color: var(--text-white);
+  }
+
+  figure > * {
+    grid-area: stack;
+  }
+
+  img {
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-default);
+  }
+
+  .play-btn {
+    place-self: end;
+    display: inline-grid;
+    place-content: center;
+    background-color: #1ed760;
+    color: var(--text-black);
+    border-radius: var(--border-radius-round);
+    inline-size: var(--space-xxxl);
+    block-size: var(--space-xxxl);
+    margin: var(--space-xs);
+    box-shadow: var(--shadow-medium);
+    transition: 0.3s;
+    isolation: isolate;
+  }
+
+  .play-btn:not(article:hover *) {
+    translate: 0 var(--space-xs);
+    opacity: 0;
+  }
+
+  .play-btn:hover {
+    background: var(--brand-color-highlight);
+    scale: 1.04;
+  }
+
+  .play-btn svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+  }
+
+  svg {
+    width: var(--space-sm);
+    height: var(--space-sm);
+    margin: var(--space-xxs);
+    display: block;
+  }
+</style>
