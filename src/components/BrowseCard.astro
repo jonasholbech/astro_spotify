@@ -1,0 +1,75 @@
+---
+const { titleside, backgroundColor, imgBrowse, isNew } = Astro.props;
+---
+
+<li>
+  <article style={{ backgroundColor }}>
+    <a class="badge" href="#0">
+    <h3>
+      {titleside}
+    </h3>
+    <img src={imgBrowse} alt=""  />
+    </a>
+    <!-- <p class="new" style={{ backgroundColor }}>NEW</p> -->
+    {isNew === true ? (
+      <p class="new" style={{ backgroundColor }}>NEW</p>
+    ) : null}
+  </article>
+</li>
+
+<style>
+      article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    border-radius: var(--border-radius-medium);
+    transition: background 0.3s ease;
+  }
+
+.badge {
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+  
+}
+
+  h3 {
+    padding: 2%;
+    padding-left: 5%;
+  }
+
+  h3 a {
+    color: inherit;
+    
+  }
+
+  /* a::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+  } */
+
+  img{
+    width: 96px;
+    height: auto;
+    position: absolute;
+    transform: rotate(25deg);
+    margin-top: 34px;
+    margin-left: 107px;
+  }
+
+  .new{
+    text-align: center;
+    border-radius: 35%;
+    width: 55px;
+    position: absolute;
+    color: white;
+    border: 3px solid #1f1f1f;
+    margin-top: -5%;
+    margin-left: 80%;
+    z-index: 1;
+    overflow: visible;
+  }
+
+</style>
